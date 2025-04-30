@@ -12,6 +12,7 @@ import EmojiList from "@/components/EmojiList";
 import EmojiSticker from "@/components/EmojiSticker";
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
 import * as MediaLibrary from  'expo-media-library'
+
 import { captureRef } from "react-native-view-shot";
 
 const PlaceholderImage =  require('@/assets/images/background-image.png');
@@ -23,10 +24,6 @@ export default function Index() {
   const[isModalVisible,setIsModalVisible] = useState<boolean>(false);
   const [pickedEmoji,setPickedEmoji] = useState<ImageSource | undefined>(undefined);
   const imageRef = useRef<View>(null);
-
-  if(!status==null){
-    requestPermission();
-  }
 
 
   let pickImageAsync = async ()=>{
@@ -53,6 +50,10 @@ export default function Index() {
   const onModalClose = () => {
     setIsModalVisible(false);
   };
+  
+  if(!status==null){
+    requestPermission();
+  }
 
   const onSaveImageAsync = async()=>{
     try{
@@ -64,10 +65,13 @@ export default function Index() {
       if(localUri){
         alert("Image saved to gallery");
     }
+    console.log(localUri);
+    
   }catch(e){
     console.log(e);
     
   }
+}
 
 
   return (
@@ -102,7 +106,7 @@ export default function Index() {
     </GestureHandlerRootView>
   );
 }
-}
+
 
 const styles = StyleSheet.create({
   container:{
