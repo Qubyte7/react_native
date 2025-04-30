@@ -10,50 +10,10 @@ import EmojiPicker from "@/components/EmojPicker";
 import { type ImageSource } from "expo-image";
 import EmojiList from "@/components/EmojiList";
 import EmojiSticker from "@/components/EmojiSticker";
-
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
 
 
 const PlaceholderImage =  require('@/assets/images/background-image.png');
-
-const styles = StyleSheet.create({
-  container:{
-    flex: 1,
-    backgroundColor : "#25292e",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  text:{
-    color: "#fff",
-  },
-  button:{
-    fontSize: 20,
-    textDecorationLine: "underline",
-    color: '#fff',  
-  },
-  imageContainer:{
-    flex: 1,
-  },
-  image:{
-    width: 320,
-    height: 440,
-    borderRadius: 18,
-  },
-  footerContainer: {
-    flex: 1/2.5,
-    alignItems: 'center',
-  },
-  optionsContainer: {
-    position: 'absolute',
-    bottom: 90,
-    left: -130,
-  },
-  optionsRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-})
-
-
 
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
@@ -91,7 +51,8 @@ export default function Index() {
   }
 
   return (
-    <View style={styles.container}>
+    <GestureHandlerRootView style={styles.container}>
+    <View >
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage} />
         {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
@@ -116,5 +77,46 @@ export default function Index() {
           <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose}/>
       </EmojiPicker>
     </View>
+    </GestureHandlerRootView>
   );
 }
+
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    backgroundColor : "#25292e",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text:{
+    color: "#fff",
+  },
+  button:{
+    fontSize: 20,
+    textDecorationLine: "underline",
+    color: '#fff',  
+  },
+  imageContainer:{
+    flex: 1,
+    alignItems: 'center',
+  },
+  image:{
+    width: 320,
+    height: 440,
+    borderRadius: 18,
+  },
+  footerContainer: {
+    flex: 1/2.5,
+    alignItems: 'center',
+  },
+  optionsContainer: {
+    position: 'absolute',
+    bottom: 60,
+  
+  },
+  optionsRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+})
