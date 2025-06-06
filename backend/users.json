@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "name":"Innocent",
+        "email":"innocent123@gmail.com",
+        "password":"innocent@123"
+    },
+    {
+        "id":2,
+        "name":"rca",
+        "email":"rwandaC123@gmail.com",
+        "password":"rwandaC@123"
+    },
+    {
+        "id":3,
+        "name":"pacifique",
+        "email":"pacifique123@gmail.com",
+        "password":"pacifique@123"
+    },
+    {
+        "id":4,
+        "name":"yvesh",
+        "email":"yvesh123@gmail.com",
+        "password":"yvesh@123"
+    },
+    {
+        "id":1,
+        "name":"kayumba",
+        "email":"kayumba123@gmail.com",
+        "password":"kayumba@123"
+    }
+]
